@@ -10,14 +10,19 @@ endif
 let g:vine_already_loaded = 1
 
 " Exposes the plugin's functions for use as commands in Vim.
-:command -nargs=0 Vine :call VineSeek()
+:command -nargs=* Vine :call VineSeek(<args>)
 
-funct! VineSeek()
-    echo 'Searching...'
-    let fileExtension = '.' . expand("%:e")
-    silent! execute '!vine ' . expand("<cword>") . ' ' . fileExtension . ' > .vine'
-    silent! execute 'view .vine | echo "Done"'
-endfunct!
+function! VineSeek(...)
+
+    let search = get(a:, 1, expand("<cword>"))
+    let fileExtension = get(a:, 2, '.' . expand("%:e"))
+
+    echo 'Searching "' . search . '" in ' . fileExtension . ' files'
+
+    silent! execute '!vine ' . search . ' ' . fileExtension . ' > .vine'
+    silent! execute 'view .vine'
+
+endfunction!
 
 " opening current line file
 
@@ -34,7 +39,6 @@ function! VineOpen()
 
             silent! execute 'edit ' . splited_splited_file_line[0]
             silent! execute ':' . splited_splited_file_line[1]
-            zz
 
         endif
 
