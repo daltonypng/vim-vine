@@ -9,5 +9,6 @@ Neovim plugin to use daltonypng/vine-finder
 nnoremap <C-f> :Vine
 
 " Open current shown match
-nnoremap <leader>f <CR>
+nnoremap <leader>f :call VineOpen() <CR>
 ```
+
