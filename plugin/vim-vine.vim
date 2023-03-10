@@ -10,12 +10,13 @@ endif
 let g:vine_already_loaded = 1
 
 " Exposes the plugin's functions for use as commands in Vim.
-:command -nargs=* Vine :call VineSeek(<f-args>)
+:command -nargs=0 Vine :call VineSeek()
 
-funct! VineSeek(search, extensions)
+funct! VineSeek()
     echo 'Searching...'
-    silent! execute '!vine ' . a:search . ' ' . a:extensions . ' > .vine'
-    silent! execute 'view .vine'
+    let fileExtension = '.' . expand("%:e")
+    silent! execute '!vine ' . expand("<cword>") . ' ' . fileExtension . ' > .vine'
+    silent! execute 'view .vine | echo "Done"'
 endfunct!
 
 " opening current line file
