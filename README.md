@@ -6,9 +6,12 @@ Neovim plugin to use with [vine-finder](https://github.com/daltonypng/vine-finde
 
 ```
 " Search on current word filtering by current file extension
-nnoremap <C-f> :Vine
+nnoremap <C-f> :Vine<CR>
+
+" Open to fill with other values than the defaults
+nnoremap <leader>f :call VineSeek('', '.')
 
 " Open current shown match
-nnoremap <leader>f :call VineOpen() <CR>
-```
+nnoremap <leader><CR> :call VineOpen()<CR>
 
+```
