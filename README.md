@@ -1,6 +1,6 @@
 # vim-vine
 
-Neovim plugin to use daltonypng/vine-finder
+Neovim plugin to use with [vine-finder](https://github.com/daltonypng/vine-finder)
 
 ## sugested keymappings
 
