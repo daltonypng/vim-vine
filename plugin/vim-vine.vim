@@ -19,7 +19,7 @@ function! VineSeek(...)
 
     echo 'Searching "' . search . '" in ' . fileExtension . ' files'
 
-    silent! execute '!vine ' . search . ' ' . fileExtension . ' > .vine'
+    silent! execute '!vine .' . search . ' ' . fileExtension . ' > .vine'
     silent! execute 'view .vine'
 
 endfunction!
